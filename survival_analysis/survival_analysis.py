@@ -19,9 +19,9 @@ from pylab import rcParams
 rcParams['figure.figsize'] = 10, 5
 sns.set()
 
-verheek = pd.read_table("GSE6891_series_matrix.txt", comment="!")
+verheek = pd.read_table("GSE6891_series_matrix.txt.gz", comment="!")
 verheek_surv = pd.read_csv("OS_EFS_GSE6891.csv")
-verheek_info = pd.read_table("GSE6891_series_matrix.txt", skiprows=43,
+verheek_info = pd.read_table("GSE6891_series_matrix.txt.gz", skiprows=43,
                              nrows=25)
 
 probes = pd.read_table('GPL570-55999.txt', skiprows=16)
@@ -342,8 +342,8 @@ high_low_to_R(balancedNN,file_name_NN,"GSE6891")
 high_low_to_R(balancednoNN,file_name_noNN,"GSE6891")
 
 # check gene in other datasets then check balancing
-kohl = pd.read_table("GSE15434_series_matrix.txt", comment="!")
-kohl_info = pd.read_table("GSE15434_series_matrix.txt", 
+kohl = pd.read_table("GSE15434_series_matrix.txt.gz", comment="!")
+kohl_info = pd.read_table("GSE15434_series_matrix.txt.gz", 
         skiprows=39, nrows=40)
 kohl.index = kohl.ID_REF.values
 kohl.drop('ID_REF', axis= 1, inplace=True)
@@ -526,8 +526,8 @@ columns_to_keep = columns_to_keep +  flat_list
 hafer.loc[a,columns_to_keep].to_csv(file_name + "_balanced_hafer_selected_genes.csv")
 
 # check gene in other datasets then check balancing
-valk = pd.read_table("GSE1159_series_matrix.txt", comment="!")
-valk_info = pd.read_table("GSE1159_series_matrix.txt", skiprows=41, nrows=24)
+valk = pd.read_table("GSE1159_series_matrix.txt.gz", comment="!")
+valk_info = pd.read_table("GSE1159_series_matrix.txt.gz", skiprows=41, nrows=24)
 valk_more_info = pd.read_csv("GSE1159_moreinfo.csv")
 valk_more_info.index = valk_more_info['Array Samples'].values
 valk_more_info.drop('Array Samples', axis=1, inplace=True)

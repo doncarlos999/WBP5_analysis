@@ -6,11 +6,10 @@ library(ggplot2)
 library(affy)
 library(pheatmap)
 library(RColorBrewer)
-mainDir  <- "/media/10TB2/AML"
-setwd(mainDir)
-balancedHighLowFile <- "WBP5_217975_at_GSE6891_highvslow.csv"
-balancedHighLowFile2 <- "WBP5_217975_at_GSE15434_highvslow.csv"
-balancedHighLowFile3 <- "WBP5_217975_at_GSE1159_highvslow.csv"
+mainDir  <- getwd() 
+balancedHighLowFile <- "../survival_analysis/WBP5_217975_at_GSE6891_highvslow.csv"
+balancedHighLowFile2 <- "../survival_analysis/WBP5_217975_at_GSE15434_highvslow.csv"
+balancedHighLowFile3 <- "../survival_analysis/WBP5_217975_at_GSE1159_highvslow.csv"
 gene <- stringr::str_split(balancedHighLowFile,"_", simplify=T)[1]
 probe <- stringr::str_remove(balancedHighLowFile, paste0(gene,"_"))
 probe <- stringr::str_extract(probe, ".*_at")
@@ -43,7 +42,7 @@ for (i in c("GSE15434","GSE13204","GSE6891","GSE1159", "GSE22845")){
             highLow <- highLow[!duplicated(highLow$patient),]
     }
 
-    gset <- getGEO(filename = Sys.glob(paste0("./", GSE,"*.gz")),
+    gset <- getGEO(filename = Sys.glob(paste0("../survival_analysis/", GSE,"*.gz")),
                GSEMatrix =TRUE, AnnotGPL=TRUE, destdir = '../')
     if (length(gset) > 1) idx <- grep("GPL570", attr(gset, "names")) else idx <- 1
     gset2 <- gset
@@ -60,7 +59,7 @@ for (i in c("GSE15434","GSE13204","GSE6891","GSE1159", "GSE22845")){
     }
     # chnge expression to rma version
 	if (fresh){
-		directory <- paste0("/media/10TB2/AML/",GSE,"_RAW/")
+		directory <- paste0(GSE,"_RAW/")
 		setwd(directory)
 		system(paste0("tar -xvf ",GSE,"_RAW.tar --directory stash"))
 		if (GSE == "GSE6891"){
@@ -193,7 +192,7 @@ for (i in c("GSE15434","GSE13204","GSE6891","GSE1159", "GSE22845")){
         ggsave(paste(gene,probe,date_time,subtype,GSE,'expression_high_low.pdf'),g)
     }
     # box plots of HOXA and HOXB expression
-    prob2gene <- read.table("myb_hi_low/MYB_204798_at_MLL_GSEA.tsv",
+    prob2gene <- read.table("prob2gene.tsv",
                 header=T)
     hoxab <- prob2gene[grepl("HOXA|HOXB|MEIS[123]|PBX[123]|FLT3|CEBPA|MYB|FOXC1|GATA2|CRNDE|CLU|CTSG|PRDM16|IGFBP2|CPA3|WT1", prob2gene$Gene.symbol) ,]
     hoxab <- hoxab[!grepl("-AS|MYB[PLB]|MEIS3P|FLT3LG",hoxab$Gene.symbol),]
