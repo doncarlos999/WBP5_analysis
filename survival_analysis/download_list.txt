@@ -1,0 +1,7 @@
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE37nnn/GSE37642/matrix/GSE37642-GPL96_series_matrix.txt.gz
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE37nnn/GSE37642/suppl/GSE37642_Survival_data.txt.gz
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE12nnn/GSE12417/matrix/GSE12417-GPL570_series_matrix.txt.gz
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE12nnn/GSE12417/matrix/GSE12417-GPL96_series_matrix.txt.gz
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE6nnn/GSE6891/matrix/GSE6891_series_matrix.txt.gz
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE15nnn/GSE15434/matrix/GSE15434_series_matrix.txt.gz
+ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE1nnn/GSE1159/matrix/GSE1159_series_matrix.txt.gz
