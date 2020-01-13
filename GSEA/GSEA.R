@@ -1,11 +1,10 @@
 library(tidyverse)
 gsea_jar <- file.path("~","gsea","gsea-3.0.jar")
-setwd("/media/10TB2/AML")
 gene <- "WBP5"
 # IMPORTANT:
 # If rnk file has quotes gmt file must also have quotes around genes
-rnk_files <- Sys.glob(paste0(gene,"*all_subs*.rnk"))
-gmt_file <- "gene_sets/HOXa_B.gmt"
+rnk_files <- Sys.glob(paste0("../DE/"gene,"*all_subs*.rnk"))
+gmt_file <- "HOXa_B.gmt"
 gmt_files <- gmt_file
 working_dir <- getwd()
 run_GSEA <- function(gmt_file,rnk_file){  # preranked list version
