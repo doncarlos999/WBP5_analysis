@@ -1,4 +1,7 @@
 library(tidyverse)
+# java version "1.8.0_201"
+# Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+#Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 gsea_jar <- file.path("~","gsea","gsea-3.0.jar")
 gene <- "WBP5"
 # IMPORTANT:
