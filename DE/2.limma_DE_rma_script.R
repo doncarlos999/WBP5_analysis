@@ -468,4 +468,4 @@ cat(info, file=paste0(date_time,"sessionInfo", ".txt"), sep="\n")
 
 system(paste0('cp limma_DE_rma_script.R ',
 			                date_time,'_limma_DE_rma_script.R'))
-system(paste0('zip -m ',gene,probe,date_time,'_plots_data.zip *',date_time,'*'))
+#system(paste0('zip -m ',gene,probe,date_time,'_plots_data.zip *',date_time,'*'))
